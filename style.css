@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Your original custom styles */
+.gradient-bg {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.music-card {
+  transition: all 0.3s ease;
+}
+.music-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.genre-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.genre-card:hover {
+  transform: scale(1.05);
+}
+
+.play-button { transition: all 0.2s ease; }
+.play-button:hover { transform: scale(1.1); }
+
+.progress-bar {
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+}
+
+.hidden { display: none; }
+
+.fade-in { animation: fadeIn 0.5s ease-in; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Small, safe responsive touches without changing layout/JS */
+@media (max-width: 640px) {
+  .music-card { padding: 12px; }
+  #musicPlayer .w-32 { width: 6rem; } /* thinner progress on phones */
+  #songsPage .max-w-6xl { padding-left: 12px; padding-right: 12px; }
+}
+
+@media (min-width: 1024px) {
+  .music-card { padding: 16px; }
+}
+}

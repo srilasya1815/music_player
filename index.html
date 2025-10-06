@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SoundWave Music Player</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+
+  <!-- Step 2: Genre Selection -->
+  <div id="genreSelection" class="min-h-screen bg-gray-50 p-6">
+    <div class="max-w-6xl mx-auto fade-in">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-gray-800 mb-4">Choose Your Vibe</h2>
+        <p class="text-gray-600 text-lg">Select your favorite genres to personalize your experience</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
+        <div class="genre-card bg-gradient-to-br from-red-400 to-pink-500 rounded-2xl p-6 text-white text-center" onclick="selectGenre('pop')">
+          <div class="text-4xl mb-3">🎤</div><h3 class="font-semibold text-lg">Pop</h3>
+        </div>
+        <div class="genre-card bg-gradient-to-br from-blue-400 to-indigo-500 rounded-2xl p-6 text-white text-center" onclick="selectGenre('rock')">
+          <div class="text-4xl mb-3">🎸</div><h3 class="font-semibold text-lg">Rock</h3>
+        </div>
+        <div class="genre-card bg-gradient-to-br from-green-400 to-teal-500 rounded-2xl p-6 text-white text-center" onclick="selectGenre('jazz')">
+          <div class="text-4xl mb-3">🎷</div><h3 class="font-semibold text-lg">Jazz</h3>
+        </div>
+        <div class="genre-card bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl p-6 text-white text-center" onclick="selectGenre('electronic')">
+          <div class="text-4xl mb-3">🎧</div><h3 class="font-semibold text-lg">Electronic</h3>
+        </div>
+        <div class="genre-card bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl p-6 text-white text-center" onclick="selectGenre('classical')">
+          <div class="text-4xl mb-3">🎼</div><h3 class="font-semibold text-lg">Classical</h3>
+        </div>
+        <div class="genre-card bg-gradient-to-br from-gray-600 to-gray-800 rounded-2xl p-6 text-white text-center" onclick="selectGenre('hiphop')">
+          <div class="text-4xl mb-3">🎤</div><h3 class="font-semibold text-lg">Hip Hop</h3>
+        </div>
+        <div class="genre-card bg-gradient-to-br from-emerald-400 to-cyan-500 rounded-2xl p-6 text-white text-center" onclick="selectGenre('reggae')">
+          <div class="text-4xl mb-3">🌴</div><h3 class="font-semibold text-lg">Reggae</h3>
+        </div>
+        <div class="genre-card bg-gradient-to-br from-rose-400 to-red-500 rounded-2xl p-6 text-white text-center" onclick="selectGenre('country')">
+          <div class="text-4xl mb-3">🤠</div><h3 class="font-semibold text-lg">Country</h3>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button onclick="showSongsPage()" class="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-8 py-3 rounded-lg font-semibold hover:from-purple-600 hover:to-blue-600 transition-all transform hover:scale-105">
+          Continue to Music
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 3: Songs Page -->
+  <div id="songsPage" class="min-h-screen bg-gray-50 hidden">
+    <div class="bg-white shadow-sm border-b">
+      <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+          <div class="w-10 h-10 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center">
+            <span class="text-white text-lg">🎵</span>
+          </div>
+          <h1 class="text-2xl font-bold text-gray-800">SoundWave</h1>
+        </div>
+        <div class="flex items-center space-x-4">
+          <input type="text" placeholder="Search songs..." class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none">
+          <button class="p-2 text-gray-600 hover:text-purple-500"><span class="text-xl">👤</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto p-6 fade-in">
+      <div class="mb-8">
+        <h2 class="text-3xl font-bold text-gray-800 mb-2">Your Music Library</h2>
+        <p class="text-gray-600">Discover and play your favorite tracks</p>
+      </div>
+
+      <!-- Keep the same card structure; added many more below.
+           IMPORTANT: The order of these cards matches the 'tracks' array in app.js -->
+      <div class="grid gap-4">
+
+        <!-- Original English/International -->
+        <div class="music-card bg-white rounded-xl p-4 shadow-sm border flex items-center space-x-4" onclick="playTrack('Blinding Lights','The Weeknd')">
+          <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-lg flex items-center justify-center"><span class="text-white text-2xl">🌟</span></div>
+          <div class="flex-1"><h3 class="font-semibold text-gray-800">Blinding Lights</h3><p class="text-gray-600">The Weeknd</p></div>
+          <div class="text-gray-500">3:20</div>
+          <button class="play-button w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white hover:bg-purple-600"><span>▶️</span></button>
+        </div>
+
+        <div class="music-card bg-white rounded-xl p-4 shadow-sm border flex items-center space-x-4" onclick="playTrack('Shape of You','Ed Sheeran')">
+          <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-lg flex items-center justify-center"><span class="text-white text-2xl">🎵</span></div>
+          <div class="flex-1"><h3 class="font-semibold text-gray-800">Shape of You</h3><p class="text-gray-600">Ed Sheeran</p></div>
+          <div class="text-gray-500">3:53</div>
+          <button class="play-button w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white hover:bg-purple-600"><span>▶️</span></button>
+        </div>
+
+        <div class="music-card bg-white rounded-xl p-4 shadow-sm border flex items-center space-x-4" onclick="playTrack('Levitating','Dua Lipa')">
+          <div class="w-16 h-16 bg-gradient-to-br from-pink-400 to-red-500 rounded-lg flex items-center justify-center"><span class="text-white text-2xl">✨</span></div>
+          <div class="flex-1"><h3 class="font-semibold text-gray-800">Levitating</h3><p class="text-gray-600">Dua Lipa</p></div>
+          <div class="text-gray-500">3:23</div>
+          <button class="play-button w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white hover:bg-purple-600"><span>▶️</span></button>
+        </div>
+
+        <div class="music-card bg-white rounded-xl p-4 shadow-sm border flex items-center space-x-4" onclick="playTrack('Good 4 U','Olivia Rodrigo')">
+          <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-teal-500 rounded-lg flex items-center justify-center"><span class="text-white text-2xl">🎤</span></div>
+          <div class="flex-1"><h3 class="font-semibold text-gray-800">Good 4 U</h3><p class="text-gray-600">Olivia Rodrigo</p></div>
+          <div class="text-gray-500">2:58</div>
+          <button class="play-button w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white hover:bg-purple-600"><span>▶️</span></button>
+        </div>
+
+        <div class="music-card bg-white rounded-xl p-4 shadow-sm border flex items-center space-x-4" onclick="playTrack('Stay','The Kid LAROI & Justin Bieber')">
+          <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg flex items-center justify-center"><span class="text-white text-2xl">🔥</span></div>
+          <div class="flex-1"><h3 class="font-semibold text-gray-800">Stay</h3><p class="text-gray-600">The Kid LAROI & Justin Bieber</p></div>
+          <div class="text-gray-500">2:21</div>
+          <button class="play-button w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white hover:bg-purple-600"><span>▶️</span></button>
+        </div>
+
+        <!-- Hindi (Arijit Singh, Shreya Ghoshal, Jubin Nautiyal) -->
+        <div class="music-card bg-white rounded-xl p-4 shadow-sm border flex items-center space-x-4" onclick="playTrack('Kesariya','Arijit Singh')">
+          <div class="w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-lg flex items-center justify-center"><span class="text-white text-2xl">🧡</span></div>
+          <div class="flex-1"><h3 class="font-semibold text-gray-800">Kesariya</h3><p class="text-gray-600">Arijit Singh</p></div>
+          <div class="text-gray-500">3:30</div>
+          <button class="play-button w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white hover:bg-purple-600"><span>▶️</span></button>
+        </div>
+
+        <div class="music-card bg-white rounded-xl p-4 shadow-sm border flex items-center space-x-4" onclick="playTrack('Tum Hi Ho','Arijit Singh')">
+          <div class="w-16 h-16 bg-gradient-to-br from-rose-400 to-pink-500 rounded-lg flex items-center justify-center"><span class="text-white text-2xl">💖</span></div>
+          <div class="flex-1"><h3 class="font-semibold text-gray-800">Tum Hi Ho</h3><p class="text-gray-600">Arijit Singh</p></div>
+          <div class="text-gray-500">4:22</div>
+          <button class="play-button w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white hover:bg-purple-600"><span>▶️</span></button>
+        </div>
+
+        <div class="music-card bg-white rounded-xl p-4 shadow-sm border flex items-center space-x-4" onclick="playTrack('Sun Raha Hai (Female)','Shreya Ghoshal')">
+          <div class="w-16 h-16 bg-gradient-to-br from-fuchsia-400 to-purple-500 rounded-lg flex items-center justify-center"><span class="text-white text-2xl">🌸</span></div>
+          <div class="flex-1"><h3 class="font-semibold text-gray-800">Sun Raha Hai (Female)</h3><p class="text-gray-600">Shreya Ghoshal</p></div>
+          <div class="text-gray-500">5:08</div>
+          <button class="play-button w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white hover:bg-purple-600"><span>▶️</span></button>
+        </div>
+
+        <div class="music-card bg-white rounded-xl p-4 shadow-sm border flex items-center space-x-4" onclick="playTrack('Raataan Lambiyan','Jubin Nautiyal & Asees Kaur')">
+          <div class="w-16 h-16 bg-gradient-to-br from-red-400 to-rose-500 rounded-lg flex items-center justify-center"><span class="text-white text-2xl">🌙</span></div>
+          <div class="flex-1"><h3 class="font-semibold text-gray-800">Raataan Lambiyan</h3><p class="text-gray-600">Jubin Nautiyal & Asees Kaur</p></div>
+          <div class="text-gray-500">3:50</div>
+          <button class="play-button w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white hover:bg-purple-600"><span>▶️</span></button>
+        </div>
+
+        <!-- Telugu (Armaan Malik, Sid Sriram, SPB) -->
+        <div class="music-card bg-white rounded-xl p-4 shadow-sm border flex items-center space-x-4" onclick="playTrack('Butta Bomma','Armaan Malik (Telugu)')">
+          <div class="w-16 h-16 bg-gradient-to-br from-violet-400 to-purple-600 rounded-lg flex items-center justify-center"><span class="text-white text-2xl">🪘</span></div>
+          <div class="flex-1"><h3 class="font-semibold text-gray-800">Butta Bomma</h3><p class="text-gray-600">Armaan Malik (Telugu)</p></div>
+          <div class="text-gray-500">3:17</div>
+          <button class="play-button w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white hover:bg-purple-600"><span>▶️</span></button>
+        </div>
+
+        <div class="music-card bg-white rounded-xl p-4 shadow-sm border flex items-center space-x-4" onclick="playTrack('Samajavaragamana','Sid Sriram')">
+          <div class="w-16 h-16 bg-gradient-to-br from-indigo-400 to-blue-600 rounded-lg flex items-center justify-center"><span class="text-white text-2xl">🎶</span></div>
+          <div class="flex-1"><h3 class="font-semibold text-gray-800">Samajavaragamana</h3><p class="text-gray-600">Sid Sriram</p></div>
+          <div class="text-gray-500">3:48</div>
+          <button class="play-button w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white hover:bg-purple-600"><span>▶️</span></button>
+        </div>
+
+        <div class="music-card bg-white rounded-xl p-4 shadow-sm border flex items-center space-x-4" onclick="playTrack('Ee Sanje Eegaali','S. P. Balasubrahmanyam')">
+          <div class="w-16 h-16 bg-gradient-to-br from-sky-400 to-cyan-600 rounded-lg flex items-center justify-center"><span class="text-white text-2xl">💿</span></div>
+          <div class="flex-1"><h3 class="font-semibold text-gray-800">Ee Sanje Eegaali</h3><p class="text-gray-600">S. P. Balasubrahmanyam</p></div>
+          <div class="text-gray-500">4:10</div>
+          <button class="play-button w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white hover:bg-purple-600"><span>▶️</span></button>
+        </div>
+
+        <!-- Tamil (Anirudh, Dhanush, Sid Sriram) -->
+        <div class="music-card bg-white rounded-xl p-4 shadow-sm border flex items-center space-x-4" onclick="playTrack('Vaathi Coming','Anirudh Ravichander')">
+          <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-600 rounded-lg flex items-center justify-center"><span class="text-white text-2xl">💃</span></div>
+          <div class="flex-1"><h3 class="font-semibold text-gray-800">Vaathi Coming</h3><p class="text-gray-600">Anirudh Ravichander</p></div>
+          <div class="text-gray-500">3:03</div>
+          <button class="play-button w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white hover:bg-purple-600"><span>▶️</span></button>
+        </div>
+
+        <div class="music-card bg-white rounded-xl p-4 shadow-sm border flex items-center space-x-4" onclick="playTrack('Why This Kolaveri Di','Dhanush')">
+          <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-lime-500 rounded-lg flex items-center justify-center"><span class="text-white text-2xl">🤟</span></div>
+          <div class="flex-1"><h3 class="font-semibold text-gray-800">Why This Kolaveri Di</h3><p class="text-gray-600">Dhanush</p></div>
+          <div class="text-gray-500">4:20</div>
+          <button class="play-button w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white hover:bg-purple-600"><span>▶️</span></button>
+        </div>
+
+        <div class="music-card bg-white rounded-xl p-4 shadow-sm border flex items-center space-x-4" onclick="playTrack('Thalli Pogathey','Sid Sriram')">
+          <div class="w-16 h-16 bg-gradient-to-br from-teal-400 to-blue-500 rounded-lg flex items-center justify-center"><span class="text-white text-2xl">🌊</span></div>
+          <div class="flex-1"><h3 class="font-semibold text-gray-800">Thalli Pogathey</h3><p class="text-gray-600">Sid Sriram</p></div>
+          <div class="text-gray-500">4:12</div>
+          <button class="play-button w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white hover:bg-purple-600"><span>▶️</span></button>
+        </div>
+
+        <!-- Malayalam (Vineeth Sreenivasan, Sushin Shyam, K. S. Harisankar) -->
+        <div class="music-card bg-white rounded-xl p-4 shadow-sm border flex items-center space-x-4" onclick="playTrack('Jimikki Kammal','Vineeth Sreenivasan & Renjith Unni')">
+          <div class="w-16 h-16 bg-gradient-to-br from-red-400 to-orange-500 rounded-lg flex items-center justify-center"><span class="text-white text-2xl">🕺</span></div>
+          <div class="flex-1"><h3 class="font-semibold text-gray-800">Jimikki Kammal</h3><p class="text-gray-600">Vineeth Sreenivasan & Renjith Unni</p></div>
+          <div class="text-gray-500">3:50</div>
+          <button class="play-button w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white hover:bg-purple-600"><span>▶️</span></button>
+        </div>
+
+        <div class="music-card bg-white rounded-xl p-4 shadow-sm border flex items-center space-x-4" onclick="playTrack('Kudukku','Sushin Shyam')">
+          <div class="w-16 h-16 bg-gradient-to-br from-slate-400 to-gray-700 rounded-lg flex items-center justify-center"><span class="text-white text-2xl">🥁</span></div>
+          <div class="flex-1"><h3 class="font-semibold text-gray-800">Kudukku</h3><p class="text-gray-600">Sushin Shyam</p></div>
+          <div class="text-gray-500">3:05</div>
+          <button class="play-button w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white hover:bg-purple-600"><span>▶️</span></button>
+        </div>
+
+        <div class="music-card bg-white rounded-xl p-4 shadow-sm border flex items-center space-x-4" onclick="playTrack('Pavizha Mazha','K. S. Harisankar')">
+          <div class="w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center"><span class="text-white text-2xl">💧</span></div>
+          <div class="flex-1"><h3 class="font-semibold text-gray-800">Pavizha Mazha</h3><p class="text-gray-600">K. S. Harisankar</p></div>
+          <div class="text-gray-500">4:40</div>
+          <button class="play-button w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white hover:bg-purple-600"><span>▶️</span></button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 4: Music Player Controls -->
+  <div id="musicPlayer" class="fixed bottom-0 left-0 right-0 bg-white border-t shadow-lg hidden">
+    <div class="max-w-6xl mx-auto px-6 py-4">
+      <div class="flex items-center justify-between gap-4">
+        <div class="flex items-center space-x-4 flex-1">
+          <div class="w-14 h-14 bg-gradient-to-br from-purple-400 to-pink-500 rounded-lg flex items-center justify-center">
+            <span class="text-white text-xl" id="playerIcon">🌟</span>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-800" id="currentSong">Blinding Lights</h4>
+            <p class="text-gray-600 text-sm" id="currentArtist">The Weeknd</p>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-6 flex-1 justify-center">
+          <button class="text-gray-600 hover:text-purple-500 transition-colors" onclick="previousTrack()"><span class="text-2xl">⏮️</span></button>
+          <button class="w-14 h-14 bg-purple-500 rounded-full flex items-center justify-center text-white hover:bg-purple-600 transition-all transform hover:scale-105" onclick="togglePlay()" id="playPauseBtn">
+            <span class="text-xl" id="playPauseIcon">⏸️</span>
+          </button>
+          <button class="text-gray-600 hover:text-purple-500 transition-colors" onclick="nextTrack()"><span class="text-2xl">⏭️</span></button>
+        </div>
+
+        <div class="flex items-center space-x-4 flex-1 justify-end">
+          <span class="text-sm text-gray-500" id="currentTime">1:23</span>
+          <div class="w-32 bg-gray-200 rounded-full h-2 relative">
+            <div class="progress-bar h-2 rounded-full" style="width: 40%" id="progressBar"></div>
+          </div>
+          <span class="text-sm text-gray-500" id="totalTime">3:20</span>
+          <button class="text-gray-600 hover:text-purple-500 transition-colors" onclick="toggleVolume()">
+            <span class="text-xl" id="volumeIcon">🔊</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
